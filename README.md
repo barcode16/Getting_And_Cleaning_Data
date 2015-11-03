@@ -6,20 +6,13 @@ The purpose of this project is to demonstrate the ability to collect, work with,
 
 ## The Files
 
-The run_analysis.R script requires the data files downloaded via this link:
+The run_analysis.R script downloads the data automatically from this link:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-The zipped files will by default be extracted top a folder named "UCI HAR Dataset" which should be placed in your R Working Directory to enable the run_analysis.R script to work. The script requires the following 8 data files, sited in the locations shown (the path is from your R Working Directory):
+If the file has already been downloaded, the file will not be downloaded again. 
 
-1. /UCI HAR Dataset/test/X_test.txt
-2. /UCI HAR Dataset/train/X_train.txt
-3. /UCI HAR Dataset/test/subject_test.txt
-4. /UCI HAR Dataset/train/subject_train.txt
-5. /UCI HAR Dataset/test/y_test.txt
-6. /UCI HAR Dataset/train/y_train.txt
-7. /UCI HAR Dataset/features.txt
-8. /UCI HAR Dataset/activity_labels.txt
+The zipped files will by default be extracted to a folder named "UCI HAR Dataset" which will be placed in your R Working Directory . 
 
 The source data set includes other data files which are not used by the run_analysis.R script.
 
@@ -36,12 +29,16 @@ The course instructions require the run_analysis.R script to achieve the followi
 
 The submitted script file achieves all of the above objectives using the following steps, each of which is indicated using comments in the script itself:
 
-1. Step 1 - Read all of the required data from the 8 source data files, extracting only the measurements on the mean and standard deviation for each measurement.
-2. Step 2 - Merges the training and test sets to create a one data set.
-3. Step 3 - Replace numeric labels with descriptive labels and apply descriptive column names, using gsub() to remove non alphnumeric symbols from the variable names (which makes it easier to handle the names with R)
-4. Step 4 - Finalise the first tidy data set.
-5. Step 5 - Calculate the average of each variable for each subject and activity and assign to a second final tidy data set.
-6. Step 6 - Write the tidy data to a "txt" file. 
+1. Step 1 - Download and unzip the data (if necessary) and load the required R packages (this analysis uses *dplyr*, *data.table* and *stringr*)
+2. Step 2 - Read all of the required data from the 8 source data files (steps 2a-2d within the R script)
+3. Step 3 - Merges the training and test sets to create a one data set.
+4. Step 4 - Replace numeric labels with descriptive labels and apply descriptive column names, using gsub() to remove non alphnumeric symbols from the variable names (which makes it easier to handle the names with R)
+5. Step 5 -  Filter the data to only include the measurements on the mean and standard deviation for each measurement. Variables which contain the text "MeanFreq" are *not* included, as these do not appear to be measurements on the mean of the measurement in question. 
+6. Step 6 - Finalise the tidy data set by assigning the results from the above steps to a new variable. 
+7. Step 7 - Calculate the average of each variable for each subject and activity (using functions from the **dplyr** package) and assign to a second final tidy data set.
+8. Step 8 - Write the tidy data to a "txt" file. 
+
+
 
 ## The Source Data
 
@@ -49,4 +46,4 @@ Human Activity Recognition database built from the recordings of 30 subjects per
 
 ## The Final Data
 
-A tidy data set showing the averages of each mean and standard deviation measurement, resulting in 180 observations (the means for 30 subjects across 6 activities) of 68 variables. 
+A tidy data set showing the averages of each mean and standard deviation measurement, resulting in 180 observations (the means for 30 subjects across 6 activities) of 75 variables (had "MeanFreq" variables been included, this would have been 88 variables). 

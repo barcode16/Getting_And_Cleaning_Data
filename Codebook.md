@@ -64,9 +64,19 @@ The set of variables that were estimated from these signals are:
 * mean(): Mean value
 * std(): Standard deviation
 
+
 Variable names have been derived using the format:
 
 Signal type + "mean" or "std", suffixed by X, Y or Z where appropriate to represent the axis of movement. 
+
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean-XYZ
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean
 
 The final variables in the tidy data set represent the average values of the corresponding signal means and standard deviations. In full, these variables are:
 
@@ -135,16 +145,23 @@ The final variables in the tidy data set represent the average values of the cor
 * fBodyBodyGyroMagmean   : numeric 
 * fBodyBodyGyroMagstd     : numeric 
 * fBodyBodyGyroJerkMagmean: numeric 
-* fBodyBodyGyroJerkMagstd : numeric 
+* fBodyBodyGyroJerkMagstd : numeric
+* angletBodyAccMeangravity: numeric
+* angletBodyAccJerkMeangravityMean: numeric
+* angletBodyGyroMeangravityMean: numeric
+* angletBodyGyroJerkMeangravityMean: numeric
+* angleXgravityMean       : numeric
+* angleYgravityMean       : numeric
+* angleZgravityMean       : numeric
 
 
 ##Transformation
 
 The source data originally consisted of 10,299 observations of 563 variables. Transformation principally included:
 
-* Extracting 68 variables from the original 563: the subject id ("subject"); the activity label ("activity"); and the 66 variables relating to the mean and standard deviation of the measurements. 
-* Taking the means of the 10,299 observations for each of the 66 quantitative variables, resulting in 180 observations (the means for 30 subjects across 6 activities). 
-* The final output is a data set consisting of 68 variables and 180 observations.
+* Extracting 75 variables from the original 563: the subject id ("subject"); the activity label ("activity"); and the 73 variables relating to the mean and standard deviation of the measurements. 
+* Taking the means of the 10,299 observations for each of the 73 quantitative variables, resulting in 180 observations (the means for 30 subjects across 6 activities). 
+* The final output is a data set consisting of 75 variables and 180 observations.
 
 
 ##License
