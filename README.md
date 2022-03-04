@@ -1,4 +1,4 @@
-## The Aim
+## The Aim 
 
 The run_analysis.R script reads data from a number of source files and turns it into combined tidy data set meeting the criteria set out in the Coursera Getting And Cleaning Data Week 3 Project.
 
