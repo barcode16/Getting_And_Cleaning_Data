@@ -1,4 +1,4 @@
-# 1. PREPARATION
+# 1. PREPARATION 
 
 # 1a. Create a subfolder within the current working directory and set the new folder as the new working directory
 
